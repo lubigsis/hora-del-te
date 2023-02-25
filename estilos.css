@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: beige;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   /* border: 1px solid rgb(16, 16, 16);*/
+}
+
+.max-view-height {
+    height: 100vh; /*solo para el contenedor padre*/
+}
+
+.flex-direction-column {
+    flex-direction: column; /*solo para el contenedor padre*/
+}
+
+#contenedor-tacitaJS {
+    width: 50%;
+}
+
+#contenedor-tacitaJS > video { /*p/todas las etiquetas de video q' estén dentro de ese contenedor 'contenedor-tacitaJS'*/
+    width: 100%;
+}
+
+.display-none {
+    display: none; /*c/ JavaScript se irá modificando*/
+}
+
+#contenedor-botones-tacitaJS {
+    padding: 10px 0;
+    width: 50%;
+    justify-content: space-around;
+}
+
+/*--------------------------https://getcssscan.com/css-buttons-examples-------------------------------*/
+.boton {
+    background-color: #fbeee0;
+    border: 2px solid #ee3bc7;
+    border-radius: 30px;
+    box-shadow: #ee3bc7 4px 4px 0 0;
+    color: #b4098f;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    letter-spacing: 2px;
+}
+
+.boton:hover {
+    background-color: #fff;
+}
+
+.boton:active {
+    box-shadow: #be1c9b 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
