@@ -4,25 +4,52 @@ window.onload = () => {
     let videoTacita = document.getElementById('tacitaJS');
     let videoTacitaHumeando = document.getElementById('tacita-humeandoJS');
     let estadoTacita = 'vacia';
+    let botonTomar = document.getElementById('boton-tomarJS');
+    let videoTacitaTomando = document.getElementById('tacita-tomandoJS');
+
 
 //Aprieto el botón de servir. Q cuando le hagan click al botonServir, ejecute una función; la cual x dentro, ejecutará otra función
 botonServir.onclick = () => {
  
     if (estadoTacita == 'vacia'){ //----1) Me fijo si la taza está vacía:   
         reproducir(videoTacita);  //--Si está vacía, q' reproduzca el video y q' luego lo oculte, etc.
+       
         videoTacita.onended = () =>{
             ocultar(videoTacita);
             mostrar(videoTacitaHumeando);
             reproducir(videoTacitaHumeando);
             resetear(videoTacita);
-            estadoTacita('llena');                //Declarar estas funciones
+            estadoTacita = 'llena';               
     }
 
+  }
+}
+
+//--------------------------------------el otro boton de TOMAR------------------
+  
+    
+//---------- Aprieto el boton de tomar, se fija si el estado de la tacita es 'llena'
+    botonTomar.onclick = () => {
+
+        if (estadoTacita == 'llena') {            
+            // Si tiene, se vacía la tacita
+            ocultar(videoTacitaHumeando);
+            mostrar(videoTacitaTomando);
+            reproducir(videoTacitaTomando);
+            resetear(videoTacitaHumeando);
+            //---------------------------------------cuando el video de la taza tomando termine
+            videoTacitaTomando.onended = () => {
+                mostrar(videoTacita);
+                ocultar(videoTacitaTomando);
+                resetear(videoTacitaTomando);
+                estadoTacita = 'vacia';
+            }
+        }
     }
-}
 
 
 }
+
 
 /*----------------------------------------------------------------Declaro FUNCIONES-----------------*/
 function reproducir(video, loopear) {  //-----------------Le da play al video
